@@ -1,0 +1,1 @@
+{"name":"Local: bit++","url":"/Users/ojas/Desktop/CodeForces/ProblemSet 800/bit++.cpp","tests":[{"id":1744774590758,"input":"2\nX++\n--X\n","output":"0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ojas/Desktop/CodeForces/ProblemSet 800/bit++.cpp","group":"local","local":true}
