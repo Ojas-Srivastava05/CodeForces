@@ -1,0 +1,1 @@
+{"name":"Local: BlackBoardGame","url":"/Users/ojas/Desktop/CodeForces/ProblemSet 800/BlackBoardGame.cpp","tests":[{"id":1751562168133,"input":"5\n2\n4\n5\n7\n100","output":"Alice\nBob\nAlice\nAlice\nBob\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ojas/Desktop/CodeForces/ProblemSet 800/BlackBoardGame.cpp","group":"local","local":true}
