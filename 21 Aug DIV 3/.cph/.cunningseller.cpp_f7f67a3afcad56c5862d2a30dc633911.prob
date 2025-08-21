@@ -1,0 +1,1 @@
+{"name":"Local: cunningseller","url":"/Users/ojas/Desktop/CodeForces/21 Aug DIV 3/cunningseller.cpp","tests":[{"id":1755788809865,"input":"7\n1\n3\n8\n2\n10\n20\n260010000\n","output":"3\n10\n26\n6\n36\n72\n2250964728\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ojas/Desktop/CodeForces/21 Aug DIV 3/cunningseller.cpp","group":"local","local":true}
