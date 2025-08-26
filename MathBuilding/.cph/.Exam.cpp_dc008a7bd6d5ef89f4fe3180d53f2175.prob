@@ -1,0 +1,1 @@
+{"name":"Local: Exam","url":"/Users/ojas/Desktop/CodeForces/MathBuilding/Exam.cpp","tests":[{"id":1756221986339,"input":"6","output":"6\n1 5 3 6 2 4"},{"id":1756222481406,"input":"3\n","output":"2\n1 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ojas/Desktop/CodeForces/MathBuilding/Exam.cpp","group":"local","local":true}
