@@ -32,11 +32,8 @@ int main() {
                 // if this '1' is not covered by any previous '1' within distance < k
                 if (i - last_one >= k) {
                     ans++;        // protect this one
-                    last_one = i; // mark it as latest active one
-                } else {
-                    // this 1 is already safe due to a previous 1 in range
-                    last_one = i;
-                }
+                } 
+                last_one = i; 
             }
         }
 
