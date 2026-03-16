@@ -1,0 +1,1 @@
+{"name":"Local: q1","url":"/Users/ojas/Desktop/CodeForces/16 Mar Div 2/q1.cpp","tests":[{"id":1773672061827,"input":"3\n4\nRLRL\n6\nRRRRRL\n9\nRRLRRRRRL\n","output":"2\n6\n3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ojas/Desktop/CodeForces/16 Mar Div 2/q1.cpp","group":"local","local":true}

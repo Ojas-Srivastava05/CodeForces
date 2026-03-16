@@ -32,11 +32,21 @@ int modfrac(int p,int q,int m){
     int ans=(x*y)%m;
     return ans;
 }
-void rotate_to_min(vector<int>&v){
-    if(v.empty())return;
-    int n=v.size();
-    int pos=min_element(v.begin(),v.end())-v.begin();
-    rotate(v.begin(),v.begin()+pos,v.end());
+int parity(vector<int>&a){
+    int n=a.size(),inv=0;
+    vector<bool>vis(n,false);
+    for(int i=0;i<n;i++){
+        if(vis[i])continue;
+        int len=0;
+        int j=i;
+        while(!vis[j]){
+            vis[j]=true;
+            j=a[j]-1;
+            len++;
+        }
+        inv+=(len-1);
+    }
+    return inv%2;
 }
 signed main(){
     ios_base::sync_with_stdio(false);
@@ -48,22 +58,20 @@ signed main(){
         cin>>n>>x>>y;
         vector<int>a(n);
         input(a,n);
-        if(x==0&&y==n){
-            rotate_to_min(a);
-            for(int v:a)cout<<v<<" ";
-            cout<<"\n";
+        int len=y-x;
+        if(len>=2){
+            sort(all(a));
         }
-        else{
-            int l=x,r=y;
-            if(x>0)l=x-1;
-            if(y<n)r=y+1;
-            vector<int>mid(a.begin()+l,a.begin()+r);
-            sort(all(mid));
-            for(int i=0;i<l;i++)cout<<a[i]<<" ";
-            for(int v:mid)cout<<v<<" ";
-            for(int i=r;i<n;i++)cout<<a[i]<<" ";
-            cout<<"\n";
+        else if(len==1){
+            vector<int>b=a;
+            sort(all(b));
+            int pa=parity(a);
+            int pb=parity(b);
+            if(pa!=pb)swap(b[n-1],b[n-2]);
+            a=b;
         }
+        for(int v:a)cout<<v<<" ";
+        cout<<"\n";
     }
     return 0;
 }
