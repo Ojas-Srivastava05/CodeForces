@@ -85,6 +85,25 @@ signed main()
     cin >> tc;
     while (tc--)
     {
+        int n,c,k;
+        cin>>n>>c>>k;
+        vector<int>a(n);
+        input(a,n);
+        sort(all(a));
+        int i=0;
+        for(;i<n;i++)
+        {
+            if(a[i]<=c)
+            {
+                int need = min(k, c - a[i]);
+                a[i] += need;
+                k -= need;
+                c += a[i];
+            }
+            else
+                break;
+        }
+        cout<<c<<endl;
         
     }
     return 0;
