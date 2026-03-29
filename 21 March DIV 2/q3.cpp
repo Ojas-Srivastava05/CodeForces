@@ -55,57 +55,50 @@ signed main() {
     int n;
     cin >> n;
 
-    vector<int> eq;
-    eq.reserve(n);
+    vector<int> pairs;
+    bool done = false;
 
+    // step 1: disjoint pairs
     for (int i = 1; i <= 2 * n; i += 2) {
-      cout << "? " << i << " " << i + 1 << '\n';
-      cout << '\n';
-      cout.flush();
-
+      cout << "? " << i << " " << i + 1 << endl;
+      
       int res;
       cin >> res;
       if (res == -1)
         return 0;
 
-      if (res == 1)
-        eq.pb(i);
+      if (res == 1) {
+        cout << "! " << i << endl;
+        done = true;
+        break;
+      }
+      pairs.pb(i);
     }
 
-    if (eq.empty()) {
-      cout << "! " << 1 << '\n';
-      cout << '\n';
-      cout.flush();
+    if (done)
       continue;
+
+    // step 2: compare with first pair
+    int base = pairs[0];
+
+    for (int i = 1; i < (int)pairs.size(); i++) {
+      cout << "? " << base << " " << pairs[i] << endl;
+      
+      int res;
+      cin >> res;
+      if (res == -1)
+        return 0;
+
+      if (res == 1) {
+        cout << "! " << base << endl;
+        done = true;
+        break;
+      }
     }
 
-    if ((int)eq.size() == 1) {
-      cout << "! " << eq[0] << '\n';
-      cout << '\n';
-      cout.flush();
-      continue;
-    }
-
-    int u = eq[0];
-    int v = eq[1];
-
-    cout << "? " << u << " " << v << '\n';
-    cout << '\n';
-    cout.flush();
-
-    int res;
-    cin >> res;
-    if (res == -1)
-      return 0;
-
-    if (res == 1) {
-      cout << "! " << u << '\n';
-      cout << '\n';
-      cout.flush();
-    } else {
-      cout << "! " << u + 1 << '\n';
-      cout << '\n';
-      cout.flush();
+    if (!done) {
+      // then the zero is base+1
+      cout << "! " << base + 1 << endl;
     }
   }
   return 0;
