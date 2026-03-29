@@ -58,22 +58,47 @@ signed main()
         cin >> n;
 
         vector<int> p(n);
-        input(p, n);
-
-        vector<bool> marked(n, false);
-        int ans = 0;
-
         for (int i = 0; i < n; i++)
         {
-            if (marked[i])
-                break;
+            cin >> p[i];
+            p[i]--;
+        }
 
-            int j = p[i] - 1;
-            if (!marked[j])
-            {
-                marked[j] = true;
-                ans++;
-            }
+        vector<int> bit(n + 2, 0);
+
+        auto update = [&](int idx)
+        {
+            for (idx++; idx <= n; idx += idx & -idx)
+                bit[idx]++;
+        };
+
+        auto query = [&](int idx)
+        {
+            int s = 0;
+            for (idx++; idx > 0; idx -= idx & -idx)
+                s += bit[idx];
+            return s;
+        };
+
+        auto range_query = [&](int l, int r)
+        {
+            if (l > r)
+                return 0LL;
+            return query(r) - (l > 0 ? query(l - 1) : 0LL);
+        };
+
+        int ans = 0;
+        int prefix_back = 0;
+
+        for (int B = 1; B <= n; B++)
+        {
+            int i = B - 1;
+            update(p[i]);
+            if (p[i] <= i)
+                prefix_back++;
+
+            int suffix_fwd = (int)range_query(B, n - 1);
+            ans = max(ans, prefix_back + suffix_fwd);
         }
 
         cout << ans << "\n";
